@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'Casino';
+    src: url(Casino.ttf);
+}
+
+
+.marquee {
+    background-color: rgb(27, 27, 27);
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 1rem;
+    margin-block-end: 8px;
+    font-family: Casino;
+    font-size: 1.5rem;
+    border-block: 5px solid grey;
+    color: yellow;
+}
+
+.marquee:hover .marquee-content-1 {
+    animation-play-state: paused;
+}
+
+.marquee:hover .marquee-content-2 {
+    animation-play-state: paused;
+}
+
+.marquee-content-1,
+.marquee-content-2 {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    min-width: 100%;
+    animation: scroll 180s linear infinite;
+    list-style-type: none;
+    margin: 0;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 1rem));
+    }
+}

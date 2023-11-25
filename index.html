@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stocks</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="shortcut icon" href="./styles/stock-market.png" type="image/x-icon">
+</head>
+
+<body>
+    <header class="marquee"></header>
+
+    <div class="main-container">
+
+        <div class="compare-stocks"></div>
+
+        <div class="search-bar"></div>
+
+        <ul class="stocks-list"></ul>
+
+    </div>
+
+    <script type="module">
+        import { Marquee } from './js/Marquee.js'
+        new Marquee(document.querySelector('.marquee'))
+    </script>
+</body>
+
+</html>
