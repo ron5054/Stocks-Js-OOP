@@ -1,6 +1,64 @@
 @font-face {
-    font-family: 'Casino';
-    src: url(Casino.ttf);
+    font-family: 'Ledbdrev';
+    src: url(Ledbdrev.ttf);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.main-container {
+    width: 40vw;
+    margin: 2rem auto 0;
+    background-color: lightgrey;
+    padding: 2rem;
+    border-radius: .2rem;
+}
+
+.main-container .search-bar {
+    padding: .5rem;
+}
+
+.main-container .search-bar input {
+    border-radius: .2rem;
+    font-size: 1.3rem;
+}
+
+.main-container .search-bar input::placeholder {
+    font-size: 1.3rem;
+}
+
+.main-container ul {
+    padding: 0;
+    margin: 0;
+}
+
+.main-container ul li {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    List-style-type: none;
+    padding: .5rem;
+    border-block-end: 1px solid rgb(154, 166, 166);
+}
+
+.main-container ul li button {
+    margin-inline-start: auto;
+}
+
+.main-container ul li a {
+    color: black;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.main-container ul li a:hover {
+    color: rgb(39, 144, 147);
+}
+
+.main-container ul li img {
+    height: 1.5rem;
 }
 
 
@@ -12,7 +70,7 @@
     user-select: none;
     gap: 1rem;
     margin-block-end: 8px;
-    font-family: Casino;
+    font-family: Ledbdrev;
     font-size: 1.5rem;
     border-block: 5px solid grey;
     color: yellow;
@@ -31,11 +89,12 @@
     flex-shrink: 0;
     display: flex;
     justify-content: space-around;
-    gap: 1rem;
     min-width: 100%;
-    animation: scroll 180s linear infinite;
+    animation: scroll 200s linear infinite;
     list-style-type: none;
     margin: 0;
+    padding: 0;
+    margin-inline: -.5rem;
 }
 
 @keyframes scroll {
@@ -46,4 +105,61 @@
     to {
         transform: translateX(calc(-100% - 1rem));
     }
+}
+
+.main-container .compare-stocks {
+    padding: 0 .5rem .5rem;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: .5rem;
+    height: 2rem;
+}
+
+.main-container .compare-stocks .compare-symbol,
+.compare-symbols-btn,
+.compare-btn {
+    display: flex;
+    align-items: center;
+    background-color: cadetblue;
+    color: white;
+    padding: .5rem;
+    border-radius: .2rem;
+    gap: .5rem;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: all .5s;
+}
+
+.compare-btn {
+    cursor: pointer;
+}
+
+.compare-symbols-btn {
+    margin-inline-start: auto;
+    background-color: rgb(60, 60, 169);
+    cursor: pointer;
+}
+
+.compare-symbols-btn:disabled,
+.compare-btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    scale: .95;
+}
+
+.main-container .compare-stocks .compare-symbol .remove-btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-size: .67rem;
+    padding: 0;
+    margin-block-end: .12rem;
+    cursor: pointer;
+}
+
+
+.highlight {
+    border-radius: .2rem;
+    background-color: #75f87e;
 }

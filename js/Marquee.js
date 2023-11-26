@@ -18,7 +18,7 @@ export class Marquee {
 
             let strHTML = ''
             slicedMarquee.map((stock) => {
-                strHTML += `<li>${stock.symbol} - ${stock.price}</li>`
+                strHTML += `<li>&nbsp;${stock.symbol} - ${stock.price}&nbsp;</li>`
             })
 
             marquee1.innerHTML = strHTML

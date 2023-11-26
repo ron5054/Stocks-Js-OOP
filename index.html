@@ -24,7 +24,16 @@
 
     <script type="module">
         import { Marquee } from './js/Marquee.js'
+        import { SearchInput } from './js//SearchInput.js'
+        import { SearchResults } from './js/SearchResults.js'
+
         new Marquee(document.querySelector('.marquee'))
+        const searchInput = new SearchInput(document.querySelector('.search-bar'))
+        const results = new SearchResults(document.querySelector('.stocks-list'))
+
+        searchInput.onSearch(({ stocksList, companyProfiles, searchTerm }) => {
+            results.render(stocksList, companyProfiles, searchTerm)
+        })
     </script>
 </body>
 

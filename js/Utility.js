@@ -23,4 +23,54 @@ export class Utility {
             console.error('There was a problem with the fetch operation:', error)
         }
     }
+
+    static setDisabled(action, symbol, symbolsArr) {
+        const compareBtns = document.querySelectorAll('.compare-btn')
+        const compareSymbolsBtn = document.querySelector('.compare-symbols-btn')
+
+        if (symbol) document.querySelector(`.${symbol}`).disabled = true
+
+        if (action === 'add') {
+            if (symbolsArr.length >= 3) {
+                compareBtns.forEach(compareBtn => {
+                    compareBtn.disabled = true
+                })
+            }
+
+            if (symbolsArr.length > 1) {
+                compareSymbolsBtn.disabled = false
+            }
+        }
+
+        if (action === 'remove') {
+            if (symbolsArr.length < 2) {
+                compareSymbolsBtn.disabled = true
+            }
+
+            if (symbolsArr.length < 3) {
+                compareBtns.forEach(compareBtn => {
+                    // Check if the button's class is in symbolsArr
+                    const btnClasses = Array.from(compareBtn.classList)
+                    const hasSymbolClass = btnClasses.some(className => symbolsArr.includes(className))
+
+                    // Enable buttons not present in symbolsArr, disable others
+                    compareBtn.disabled = hasSymbolClass
+                })
+            }
+        }
+    }
+
+    static debounce(func, wait) {
+        let timeout
+        return function () {
+            const context = this
+            const args = arguments
+            const later = () => {
+                timeout = null
+                func.apply(context, args)
+            }
+            clearTimeout(timeout)
+            timeout = setTimeout(later, wait)
+        }
+    }
 }
